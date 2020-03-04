@@ -191,7 +191,7 @@ class SRM(BaseEstimator, TransformerMixin):
 
         y : not used
         """
-        logger.info("Starting Probabilistic SRM")
+        print("Starting Probabilistic SRM")
 
         # Check the number of subjects
         if len(X) <= 1:
