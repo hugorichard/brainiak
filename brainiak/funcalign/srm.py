@@ -191,7 +191,7 @@ class SRM(BaseEstimator, TransformerMixin):
 
         y : not used
         """
-        print("Starting Probabilistic SRM")
+        logger.info("Starting Probabilistic SRM")
 
         # Check the number of subjects
         if len(X) <= 1:
@@ -916,10 +916,6 @@ class DetSRM(BaseEstimator, TransformerMixin):
             ) / (np.prod(shared_response_new.shape))
 
             if grad_norm < self.tol:
-                print(
-                    "iteration: %i grad_norm: %.5e loss: %.5e"
-                    % (iteration, grad_norm, loss)
-                )
                 break
             else:
                 print(
