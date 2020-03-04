@@ -664,7 +664,7 @@ class DetSRM(BaseEstimator, TransformerMixin):
         number of subjects.
     """
 
-    def __init__(self, n_iter=10, features=50, rand_seed=0, tol=tol):
+    def __init__(self, n_iter=10, features=50, rand_seed=0, tol=1e-4):
         self.n_iter = n_iter
         self.features = features
         self.rand_seed = rand_seed
@@ -924,6 +924,8 @@ class DetSRM(BaseEstimator, TransformerMixin):
                 )
             grads.append(grad_norm)
             losses.append(loss)
+
+            shared_response = shared_response_new
 
             if logger.isEnabledFor(logging.INFO):
                 # Calculate the current objective function value
