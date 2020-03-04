@@ -916,6 +916,10 @@ class DetSRM(BaseEstimator, TransformerMixin):
             ) / (np.prod(shared_response_new.shape))
 
             if grad_norm < self.tol:
+                print(
+                    "iteration: %i grad_norm: %.5e loss: %.5e"
+                    % (iteration, grad_norm, loss)
+                )
                 break
             else:
                 print(
